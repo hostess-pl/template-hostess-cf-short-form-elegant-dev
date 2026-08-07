@@ -1,0 +1,17 @@
+:root {
+  --background: #160608;
+  --background-secondary: #1e0a0c;
+  --foreground: #f5f0eb;
+  --foreground-muted: #c9bdb5;
+  --foreground-subtle: #8a7d78;
+  --accent: #e8453c;
+  --accent-hover: #f05a52;
+  --border: color-mix(in srgb, #e8453c 18%, #160608);
+  --border-strong: color-mix(in srgb, #e8453c 38%, #f5f0eb 8%);
+  --card: #1a080a;
+  --ring: #e8453c;
+  --error: #f07070;
+
+  --theme-font-sans: 'Raleway', system-ui, sans-serif;
+  --theme-font-display: 'Abril Fatface', Georgia, serif;
+}

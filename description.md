@@ -1,0 +1,2 @@
+Color Deep blood-crimson ground (#160608) with ivory text and a true red accent (#E8453C). Far from the warm cream of site 1 and the gold-on-black of site 2.
+Typography Abril Fatface (bold, display-slab serif with a vintage Italian flavour) + Raleway Light (ultra-thin geometric sans). The contrast between the two is much more dramatic than either previous pairing.

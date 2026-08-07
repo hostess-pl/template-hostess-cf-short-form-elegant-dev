@@ -1,0 +1,104 @@
+---
+import { Image } from 'astro:assets';
+import { content, heroImage } from '@/config/content';
+import { locales } from '@/config/site.config';
+---
+
+<section
+  id="hero"
+  data-review-id="hero-section"
+  class="relative min-h-[92svh] overflow-hidden pt-16 lg:min-h-[100svh] draft-aware-hero"
+>
+  <div class="absolute inset-0">
+    <Image
+      src={heroImage}
+      alt=""
+      widths={[960, 1400, 1920]}
+      sizes="100vw"
+      class="h-full w-full object-cover object-[center_20%]"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-background/90 via-background/65 to-background"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-background/85 via-background/45 to-background/25"></div>
+  </div>
+
+  <div class="container relative z-10 flex min-h-[calc(92svh-4rem)] flex-col justify-end pb-10 pt-20 md:pb-14 md:pt-24 lg:min-h-[calc(100svh-4.5rem)] lg:pb-16">
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end lg:gap-16">
+      <div class="max-w-3xl">
+        <p class="mb-5 flex items-center gap-4 text-[0.65rem] uppercase tracking-[0.28em] text-foreground-muted">
+          <span class="h-px w-10 bg-accent/70" aria-hidden="true"></span>
+          {content.cityRibbon}
+        </p>
+
+        <h1
+          data-review-target="hero-headline"
+          class="font-display text-[clamp(2.5rem,6.5vw,5rem)] leading-[0.95] text-foreground"
+        >
+          {locales.map((locale) => (
+            <span data-lang={locale}>
+              {content.hero[locale].useUserHeadline ? (
+                content.hero[locale].headline
+              ) : (
+                <>
+                  {content.hero[locale].elegantLead}{' '}
+                  <span class="text-accent italic">{content.hero[locale].elegantAccent}</span>{' '}
+                  {content.hero[locale].elegantSuffix}
+                </>
+              )}
+            </span>
+          ))}
+        </h1>
+
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-foreground-muted md:text-lg">
+          {locales.map((locale) => (
+            <span data-lang={locale}>
+              {content.hero[locale].subheadlineIntro}{' '}
+              {content.hero[locale].subheadline}
+            </span>
+          ))}
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          {locales.map((locale) => (
+            <a href="#contact" data-review-target="hero-cta-primary" class="elegant-cta" data-lang={locale}>
+              {content.hero[locale].cta}
+            </a>
+          ))}
+          {locales.map((locale) => (
+            <a href="#work" data-review-target="hero-cta-secondary" class="elegant-cta-ghost" data-lang={locale}>
+              {content.hero[locale].ctaSecondary}
+              <span aria-hidden="true">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="hidden lg:block">
+        {locales.map((locale) => (
+          <dl data-review-target="hero-stats" class="elegant-stat-panel grid" data-lang={locale}>
+            {content.elegantStats[locale].map((stat) => (
+              <div class="elegant-stat-panel__item">
+                <dt class="text-[0.62rem] uppercase tracking-[0.24em] text-foreground-subtle">{stat.label}</dt>
+                <dd class="mt-2 font-display text-4xl text-foreground">{stat.value}</dd>
+              </div>
+            ))}
+          </dl>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-10 lg:hidden">
+      {locales.map((locale) => (
+        <dl data-review-target="hero-stats" class="elegant-stat-bar grid" data-lang={locale}>
+          {content.elegantStats[locale].map((stat) => (
+            <div class="min-w-0 px-2 py-4 text-center sm:px-3">
+              <dt class="truncate text-[0.55rem] uppercase tracking-[0.14em] text-foreground-subtle sm:text-[0.62rem] sm:tracking-[0.22em]">{stat.label}</dt>
+              <dd class="mt-1 font-display text-xl text-foreground sm:text-2xl">{stat.value}</dd>
+            </div>
+          ))}
+        </dl>
+      ))}
+    </div>
+  </div>
+</section>
